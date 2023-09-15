@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 1000px;
+  height: 330px;
+}
+
+.title {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 30px;
+}
+
+#grid {
+  height: 100%;
+  transition: 500ms;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  gap: 3px;
+  background: crimson;
+}
+
+:where(.left, .center, .right) {
+  background: navajowhite;
+  transition: 300ms;
+}
+
+:where(.left, .center, .right):hover {
+  background: crimson;
+}
+
+#grid:has(.left:hover) {
+  grid-template-columns: 4fr 1fr 1fr;
+}
+
+#grid:has(.center:hover) {
+  grid-template-columns: 1fr 4fr 1fr;
+}
+#grid:has(.right:hover) {
+  grid-template-columns: 1fr 1fr 4fr;
+}
